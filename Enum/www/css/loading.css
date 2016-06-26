@@ -1,0 +1,116 @@
+﻿/* LOADING PAGE */
+.loading-feed {
+    width:100%;
+    display:block;
+    position:relative;
+    max-height: 180px;
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.loading-feed .overlay {
+    position:absolute;
+    top:0;
+    width:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(rgba(32,32,32,1) 25%, rgba(255,255,255,0) 50%, rgba(32,32,32,1)); /* Standard syntax */
+    display:block;
+}
+
+.loading-feed .loading-item{
+    padding: 10px;
+    color: rgba(255,255,255,1);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+}
+.loader:before,
+.loader:after {
+    position: absolute;
+    content: '';
+}
+.loader:before {
+    width: 5.2em;
+    height: 10.2em;
+    background: rgba(32,32,32,1);
+    border-radius: 10.2em 0 0 10.2em;
+    top: -0.1em;
+    left: -0.1em;
+    -webkit-transform-origin: 5.2em 5.1em;
+    transform-origin: 5.2em 5.1em;
+    -webkit-animation: loaderSpin 2s infinite ease 1.5s;
+    animation: loaderSpin 2s infinite ease 1.5s;
+}
+.loader {
+    color: #14ff14;
+    font-size: 11px;
+    text-indent: -99999em;
+    margin: 55px auto;
+    margin-top: 100px;
+    position: relative;
+    width: 10em;
+    height: 10em;
+    box-shadow: inset 0 0 0 1em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    animation: loaderColor 8s infinite linear;
+    -webkit-animation: loaderColor 8s infinite linear;
+}
+.loader:after {
+    width: 5.2em;
+    height: 10.2em;
+    background: rgba(32,32,32,1);
+    border-radius: 0 10.2em 10.2em 0;
+    top: -0.1em;
+    left: 5.1em;
+    -webkit-transform-origin: 0px 5.1em;
+    transform-origin: 0px 5.1em;
+    -webkit-animation: loaderSprin 2s infinite ease;
+    animation: loaderSpin 2s infinite ease;
+}
+
+@-webkit-keyframes loaderColor {
+    0% {
+        color: #14ff14; /* Green */
+    }
+    25% {
+        color: #ff7e14; /* Orange */
+    }
+    50% {
+        color: #ff1414; /* Red */
+    }
+    75% {
+        color: #14ffff; /* Blue */
+    }
+    100% {
+        color: #14ff14; /* Green */
+    }
+}
+
+@-webkit-keyframes loaderSpin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes loaderSpin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
