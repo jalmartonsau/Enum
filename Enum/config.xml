@@ -25,9 +25,9 @@
   <plugin name="cordova-plugin-device" spec="~1.1.1" />
   <plugin name="cordova-plugin-console" spec="~1.0.2" />
   <plugin name="cordova-plugin-whitelist" spec="~1.2.1" />
-  <plugin name="cordova-plugin-statusbar" spec="~2.1.0" />
   <plugin name="ionic-plugin-keyboard" spec="~1.0.8" />
   <preference name="Orientation" value="portrait" />
   <plugin name="cordova-sqlite-storage" version="1.4.3" src="https://github.com/litehelpers/Cordova-sqlite-storage.git" />
   <plugin name="cordova-plugin-network-information" version="1.2.1" />
+  <plugin name="cordova-plugin-statusbar" version="2.1.3" />
 </widget>

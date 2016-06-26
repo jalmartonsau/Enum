@@ -2,27 +2,21 @@ angular.module('starter.controllers', [])
 
 .controller('LoadingCtrl', function ($scope, $state) {
 
-    // Check the internet connection
-    if (window.Connection) {
-        if (navigator.connection.type == Connection.NONE) {
-            // No internet :(
-            Enum.internet = false;
-        } else {
-            Enum.internet = true;
-        }
-    }
-
-    if (Enum.internet) {
-        // Connect socket.io
-        if (Enum.socket == null)
-            Enum.socket = io.connect(Enum.host);
-
-        if (Enum.socket == null)
-            return; // failed
-
-    }
+    // Connect socket.io
+    NextLoadingItem();
+    Enum.socket = io.connect(Enum.host);
 
     // Load user from the memory
     
-
+    
 })
+
+function NextLoadingItem() {
+    var items = $('.loading-feed').find('.loading-item');
+    items.first().slideUp(500, function () {
+        var newItem = $(this);
+        newItem.css("display", "block");
+        $(this).remove();
+        $('.loading-feed').append(newItem);
+    });
+}
