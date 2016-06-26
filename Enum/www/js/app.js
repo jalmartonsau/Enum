@@ -23,12 +23,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
-    .state('loading', {
-        url: '/loading',
-        templateUrl: 'page/loading.html'
-    })
+        // Loading screen
+        .state('loading', {
+            url: '/loading',
+            templateUrl: 'page/loading.html',
+            controller: 'LoadingCtrl'
+        })
 
 
-  // if none of the above states are matched, use this as the fallback
+    // Fallback
     $urlRouterProvider.otherwise('/loading');
 });
