@@ -13,9 +13,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             StatusBar.styleDefault();
         }
 
-        // On load
-
-
 
 
   });
