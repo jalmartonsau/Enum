@@ -6,8 +6,8 @@ angular.module('starter.controllers', [])
         NextLoadingItem();
     }, 3000);
 
-    // Connect socket.io
-    Enum.socket = io.connect(Enum.host);
+    // Initialize server 
+    Server.init();
 
     // Load user from the memory
     var data = localStorage.getItem("user");
@@ -27,7 +27,10 @@ angular.module('starter.controllers', [])
     $scope.data = {};
 
     $scope.SignIn = function () {
-        var username = $scope.data.username;
+        User.username = $scope.data.username;
+        User.password = $scope.data.password;
+
+        // Call SignIn service
     }
 
 })
