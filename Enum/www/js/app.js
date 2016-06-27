@@ -22,12 +22,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
+
         // Loading screen
-        .state('loading', {
-            url: '/loading',
-            templateUrl: 'page/loading.html',
-            controller: 'LoadingCtrl'
-        })
+    .state('loading', {
+        url: '/loading',
+        templateUrl: 'page/loading.html',
+        controller: 'LoadingCtrl'
+    })
+    .state('signin', {
+        url: '/signin',
+        templateUrl: 'page/signin.html',
+        controller: 'SigninCtrl'
+    })
 
 
     // Fallback
