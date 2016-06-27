@@ -11,6 +11,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
+
+                User.device.id = device.uuid;
+                User.device.model = device.model;
+                User.device.platform = device.platform;
+                User.device.version = device.version;
+
             }
         } catch (ex) {
             console.log(ex);
