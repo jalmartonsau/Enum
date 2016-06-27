@@ -12,7 +12,9 @@ angular.module('starter.controllers', [])
     // Load user from the memory
     var data = localStorage.getItem("user");
     if (data == null) {
-        $state.go('signin');
+        setTimeout(function () {
+            $state.go('signin');
+        }, 1000);
     } else {
         // Sync data with server and go to home/main
     }

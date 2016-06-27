@@ -9,4 +9,32 @@
     display: block;
 }
 
-
+/* Inputs */
+.item {
+    border: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+.item input {
+    color: rgba(255,255,255,1);
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+.input-label {
+    color: #ff7e14;
+    font-size: 18px;
+    
+}
+.button-custom{
+    background-color: rgba(50,50,50,1);
+    color: #ff7e14;
+    padding: 5px ;
+    width: 100%;
+    margin-top: 5px;
+}
+.signin{
+    margin-top: 10%;
+}
+.signin .title {
+    font-family: 'Open Sans', sans-serif;
+    color: rgba(255,255,255,1);
+}
