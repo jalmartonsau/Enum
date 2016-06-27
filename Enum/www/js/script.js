@@ -1,5 +1,15 @@
 ﻿// Param.
 
+var User = {
+    username: null,
+    password: null,
+    device: {
+        id: null,
+        model: null,
+        platform: null,
+        version: null
+    }
+};
 
 var Enum = {
     internet: false,

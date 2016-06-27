@@ -4,13 +4,13 @@
             <h4 class="title text-center">Welcome back!</h4>
             <label class="item item-input item-floating-label">
                 <span class="input-label">username</span>
-                <input type="text" placeholder="username">
+                <input type="text" placeholder="username" ng-model="data.username">
             </label>
             <label class="item item-input item-floating-label">
                 <span class="input-label">password</span>
-                <input type="password" placeholder="password">
+                <input type="password" placeholder="password" ng-model="data.password">
             </label>
-            <button class="button button-custom">
+            <button class="button button-custom" ng-click="SignIn()">
                 Sign In
             </button>
             <button class="button button-custom">

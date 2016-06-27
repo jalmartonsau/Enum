@@ -29,6 +29,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         templateUrl: 'page/loading.html',
         controller: 'LoadingCtrl'
     })
+        // Login page
     .state('signin', {
         url: '/signin',
         templateUrl: 'page/signin.html',

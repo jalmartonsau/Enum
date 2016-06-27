@@ -6,6 +6,11 @@ angular.module('starter.controllers', [])
         NextLoadingItem();
     }, 3000);
 
+    User.device.id = device.uuid;
+    User.device.model = device.model;
+    User.device.platform = device.platform;
+    User.device.version = device.version;
+
     // Connect socket.io
     Enum.socket = io.connect(Enum.host);
 
@@ -24,5 +29,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SigninCtrl', function ($scope, $state) {
-    
+    $scope.data = {};
+
+    $scope.SignIn = function () {
+        var username = $scope.data.username;
+    }
+
 })
