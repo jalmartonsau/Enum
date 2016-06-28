@@ -25,11 +25,36 @@ angular.module('starter.controllers', [])
 .controller('SigninCtrl', function ($scope, $state) {
     $scope.data = {};
 
+    Server.socket.on('AuthUserResponse', function (data) {
+        $state.go('loading');
+        // Handle the response
+        // IF good, navigate to Home page and save user in memory
+        // Else, display message
+        console.log(data);
+    });
+
     $scope.SignIn = function () {
         User.username = $scope.data.username;
         User.password = $scope.data.password;
 
         // Call SignIn service
+        try {
+            if (User == null)
+                throw new Exception("Data is missing");
+            if (User.username == null)
+                throw new Exception("Username is empty");
+            if (User.password == null)
+                throw new Exception("Password is empty");
+            if (User.device == null)
+                throw new Exception("Data.Device is missing");
+            if (User.device.id == null)
+                throw new Exception("Data.Device.id is missing");
+
+            Server.socket.emit("AuthUserRequest", User);
+        } catch (ex) {
+            console.log(ex);
+        }
+        
     }
 
 })

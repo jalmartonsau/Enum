@@ -6,9 +6,10 @@ var Server = {
     init: function () {
 
         // Connect to server
-        io.connect(Server.host);
+        this.socket = io.connect(Server.host);
 
         // Listen for events
+        
 
     }
 };
