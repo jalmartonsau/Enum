@@ -1,12 +1,27 @@
 angular.module('starter.controllers', [])
 
 .controller('LoadingCtrl', function ($scope, $state) {
-    // Loading
     setInterval(function () {
         NextLoadingItem();
     }, 3000);
 
     Server.init();
+
+
+    Server.socket.on('AuthUserResponse', function (data) {
+        try {
+            if (data.success) {
+                // Populate user data
+                // Navigate to home
+
+            } else {
+                PopUp(data.code, "OK");
+            }
+        } catch (ex) {
+            Server.error(ex);
+        }
+
+    });
 
     var data = localStorage.getItem("user");
     if (data == null) {
@@ -14,9 +29,15 @@ angular.module('starter.controllers', [])
             $state.go('signin');
         }, 1000);
     } else {
-        // Sync data with server and go to home/main
+        setTimeout(function () {
+            var user = JSON.parse(data);
+            User.username = user.username;
+            User.password = user.password;
+            Server.socket.emit("AuthUserRequest", User);
+        }, 1000);
     }
 
+    
     
 })
 
@@ -26,9 +47,15 @@ angular.module('starter.controllers', [])
     Server.socket.on('AuthUserResponse', function (data) {
         try {
             if (data.success) {
-                // Save user in memory
+                localStorage.setItem('user', JSON.stringify(
+                    {
+                        username: User.username,
+                        password: User.password
+                    })
+                );
+                // Populate User data
                 // Navigate to home
-                PopUp(data.code, "OK");
+                
             } else {
                 PopUp(data.code, "OK");
             }
