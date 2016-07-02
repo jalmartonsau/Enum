@@ -6,10 +6,8 @@ angular.module('starter.controllers', [])
         NextLoadingItem();
     }, 3000);
 
-    // Initialize server 
     Server.init();
 
-    // Load user from the memory
     var data = localStorage.getItem("user");
     if (data == null) {
         setTimeout(function () {
