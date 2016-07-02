@@ -22,6 +22,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             console.log(ex);
         }
 
+        // PopUp Modal
+        $('.popup').on('click', function () {
+            $('.popup').fadeOut();
+        });
 
   });
 })
@@ -46,3 +50,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     // Fallback
     $urlRouterProvider.otherwise('/loading');
 });
+
+
+// Pop-up modal
+function PopUp(code, button) {
+    try{
+        $('.popup .title').html(message[code]);
+        $('.popup .button').html(button);
+        $('.popup').fadeIn();
+    } catch (ex) {
+        Server.error(ex);
+    }
+    
+}

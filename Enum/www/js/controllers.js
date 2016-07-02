@@ -26,22 +26,26 @@ angular.module('starter.controllers', [])
     $scope.data = {};
 
     Server.socket.on('AuthUserResponse', function (data) {
-        //$state.go('loading');
-        // Handle the response
-        // IF good, navigate to Home page and save user in memory
-        // Else, display message
-        console.log(data);
+        try {
+            if (data.success) {
+                // Save user in memory
+                // Navigate to home
+                PopUp(data.code, "OK");
+            } else {
+                PopUp(data.code, "OK");
+            }
+        } catch (ex) {
+            Server.error(ex);
+        }
+        
     });
 
     Server.socket.on('CreateUserResponse', function (data) {
-        //$state.go('loading');
-        // Handle the response
-        // IF good
-        //  Sync data
-        //  Save user in memory
-        //  Go to home page.
-        // Else, display message
-        console.log(data);
+        if (data.success) {
+            Server.socket.emit("AuthUserRequest", User);
+        } else {
+            PopUp(data.code, "OK");
+        }
     });
 
     $scope.SignIn = function () {
@@ -49,14 +53,13 @@ angular.module('starter.controllers', [])
             User.username = $scope.data.username;
             User.password = $scope.data.password;
             if (User.username == null || User.username == "")
-                throw "Username is empty"
+                throw 8
             if (User.password == null || User.password == "")
-                throw "Password is empty";
+                throw 9;
 
             Server.socket.emit("AuthUserRequest", User);
         } catch (ex) {
-            // Display error message.
-            console.log(ex);
+            PopUp(ex, "OK");
         }
     }
 
@@ -65,14 +68,13 @@ angular.module('starter.controllers', [])
             User.username = $scope.data.username;
             User.password = $scope.data.password;
             if (User.username == null || User.username == "")
-                throw "Username is empty"
+                throw 8;
             if (User.password == null || User.password == "")
-                throw "Password is empty";
+                throw 9;
 
             Server.socket.emit("CreateUserRequest", User);
         } catch (ex) {
-            // Display error message.
-            console.log(ex);
+            PopUp(ex, "OK");
         }
     }
 

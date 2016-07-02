@@ -30,6 +30,28 @@
     padding: 5px ;
     width: 100%;
     margin-top: 5px;
+    box-sizing: border-box;
+    transition: .3s;
+    border-radius: 0px;
+}
+
+.button-custom:focus,
+.button-custom:active,
+.button-custom:hover{
+    background-color: #14ff14; /* Green */
+    -webkit-animation: CustomButtonColor 2s linear ;
+}
+@-webkit-keyframes CustomButtonColor {
+    0% {
+        background-color: rgba(32,32,32,1);
+    }
+    25% {
+        background-color: #ff7e14; /* Orange */
+    }
+    
+    100% {
+        background-color: #14ff14; /* Green */
+    }
 }
 .signin{
     margin-top: 10%;
