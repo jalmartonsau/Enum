@@ -36,7 +36,10 @@ angular.module('starter.controllers', [])
     Server.socket.on('CreateUserResponse', function (data) {
         //$state.go('loading');
         // Handle the response
-        // IF good, navigate to Home page and save user in memory
+        // IF good
+        //  Sync data
+        //  Save user in memory
+        //  Go to home page.
         // Else, display message
         console.log(data);
     });
@@ -67,7 +70,8 @@ angular.module('starter.controllers', [])
                 throw "Password is empty";
 
             Server.socket.emit("CreateUserRequest", User);
-        }catch(ex){
+        } catch (ex) {
+            // Display error message.
             console.log(ex);
         }
     }
