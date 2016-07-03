@@ -1,6 +1,7 @@
 ﻿// Param.
 
 var User = {
+    id: null,
     username: null,
     password: null,
     device: {

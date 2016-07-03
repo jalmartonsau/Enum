@@ -11,7 +11,7 @@ angular.module('starter.controllers', [])
     Server.socket.on('AuthUserResponse', function (data) {
         try {
             if (data.success) {
-                // Populate user data
+                User.id = data.data.id;
                 $state.go('home');
             } else {
                 $state.go('signin');
@@ -53,7 +53,7 @@ angular.module('starter.controllers', [])
                         password: User.password
                     })
                 );
-                // Populate User data
+                User.id = data.data.id;
                 $state.go('home');
 
             } else {
