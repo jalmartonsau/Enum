@@ -12,13 +12,13 @@ angular.module('starter.controllers', [])
         try {
             if (data.success) {
                 // Populate user data
-                // Navigate to home
-
+                $state.go('home');
             } else {
-                PopUp(data.code, "OK");
+                $state.go('signin');
             }
         } catch (ex) {
             Server.error(ex);
+            $state.go('signin');
         }
 
     });
@@ -37,8 +37,8 @@ angular.module('starter.controllers', [])
         }, 1000);
     }
 
-    
-    
+
+
 })
 
 .controller('SigninCtrl', function ($scope, $state) {
@@ -54,15 +54,15 @@ angular.module('starter.controllers', [])
                     })
                 );
                 // Populate User data
-                // Navigate to home
-                
+                $state.go('home');
+
             } else {
                 PopUp(data.code, "OK");
             }
         } catch (ex) {
             Server.error(ex);
         }
-        
+
     });
 
     Server.socket.on('CreateUserResponse', function (data) {
@@ -89,7 +89,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.SignUp = function () {
-        try{
+        try {
             User.username = $scope.data.username;
             User.password = $scope.data.password;
             if (User.username == null || User.username == "")
@@ -104,3 +104,7 @@ angular.module('starter.controllers', [])
     }
 
 })
+
+.controller('HomeCtrl', function ($scope, $state) {
+    
+});

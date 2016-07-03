@@ -45,6 +45,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         templateUrl: 'page/signin.html',
         controller: 'SigninCtrl'
     })
+        // Home
+    .state('home', {
+        url: '/home',
+        templateUrl: 'page/home.html',
+        controller: 'HomeCtrl'
+    })
 
 
     // Fallback
